@@ -16,6 +16,33 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+      <plugin>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-xjc-plugin</artifactId>
+            <version>2.6.1</version>
+            <executions>
+                <execution>
+                    <id>generate-sources</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>xsdtojava</goal>
+                    </goals>
+                    <configuration>
+                        <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+                        <xsdOptions>
+                            <xsdOption>
+                                <bindingFile>${basedir}/src/com/finlingua/xbrl/resources/xl_bindings.xjb</bindingFile>
+                                <xsd>${basedir}/src/com/finlingua/xbrl/resources/us-gaap-2013-01-31.xsd</xsd>
+                            </xsdOption>
+                            <xsdOption>
+                                <bindingFile>${basedir}/src/com/finlingua/xbrl/resources/xl_bindings.xjb</bindingFile>
+                                <xsd>${basedir}/src/com/finlingua/xbrl/resources/dei-2013-01-31.xsd</xsd>
+                            </xsdOption>
+                        </xsdOptions>
+                    </configuration>
+                </execution>
+            </executions>
+       </plugin>
     </plugins>
   </build>
 </project>
